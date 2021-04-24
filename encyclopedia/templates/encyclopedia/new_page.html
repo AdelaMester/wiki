@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title_template }}</h1>
+    {% for new_page in entries %}
+        <a href="http://127.0.0.1:8000/wiki/{{ entry }}">{{ new_page }}</a>
+    {% endfor %}
+
+    <form action="/wiki/newpage" method="POST">{% csrf_token %}
+        <input type="text" name="newTitle" placeholder="Title of the page">
+        <br>
+        <label for="newPage">Content of the new page:</label>
+        <textarea id="newPage" name="newPage" rows="4" cols="50">
+        </textarea>
+        <br><br>
+
+        <input type="submit" value="Save">
+    </form>
+
+{% endblock %}

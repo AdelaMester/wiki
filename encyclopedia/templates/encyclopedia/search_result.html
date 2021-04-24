@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title_template }}</h1>
+
+    {% for page in pages %}
+    <a href = "http://127.0.0.1:8000/wiki/{{ page }}">{{ page }}</a>
+    {% endfor %}
+
+{% endblock %}
